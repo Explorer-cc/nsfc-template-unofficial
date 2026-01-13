@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+\usepackage[fontset=none,heading=true]{ctex}
+\usepackage[
+    a4paper,
+    hmargin=3cm,
+    top=2.72cm,
+    bottom=2.54cm,
+    % showframe,
+]{geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\defaultfontfeatures{Mapping=tex-text}%连字符
+\xeCJKsetwidth{、，。；}{1.1em}%符号宽度，可添加‘’“”
+\xeCJKsetwidth{（）}{1em}%符号宽度，可添加‘’“”
+\xeCJKsetup{CJKecglue=\hspace{.3em},quiet}%中英文间空格的宽度
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setmainfont{Times New Roman}%<-
+\newCJKfontfamily{\songti}[AutoFakeSlant=0.3,AutoFakeBold=3]{simsun.ttc}%<-宋体
+\newCJKfontfamily{\heiti}[AutoFakeSlant=0.3,AutoFakeBold=3]{simhei.ttf}%<-黑体
+\newCJKfontfamily{\kaishu}[AutoFakeSlant=0.3,AutoFakeBold=3]{simkai.ttf}%<-楷体
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{setspace}
+\setstretch{1.5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xcolor}
+\definecolor{NSFCblue}{RGB}{0,112,192}
+\definecolor{NSFCred}{RGB}{255,0,0}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts}
+\usepackage{zhlipsum}
+\ctexset{
+    section={
+        name={（,）},
+        indent={2\ccwd},
+        number=\zhnum{section},
+        format={\large\color{NSFCblue}\bfseries\kaishu},
+        aftername={},%default \quad
+        aftertitle={：},
+        fixskip=true,
+        beforeskip={3ex plus .5ex minus .25ex},%这是我看着调的
+        afterskip={3ex plus .5ex minus .25ex},
+    },
+    subsection={
+        name={,.},
+        indent={2.5\ccwd},%<-修改为2.5\ccwd是希望与「（」垂直对齐
+        number=\arabic{subsection},
+        format={\color{NSFCblue}\bfseries\kaishu},
+        runin=true,
+        aftername={\;\;},
+        aftertitle={},
+        fixskip=true,
+        beforeskip={2.5ex plus .5ex minus .25ex},%这是我看着调的
+        afterskip={0em},%当runin=true时，afterskip为水平距离
+    }
+}
+
+\NewDocumentCommand\briefintro{ s m }{%
+    {\kaishu\textcolor{NSFCblue}{#2}}\IfBooleanTF{#1}{\par\medskip}{}%
+}
+
+% \pagestyle{plain}%<-only page number
+\pagestyle{empty}%<-no page number
+% \AtBeginDocument{\kaishu}%<-设置通篇字体为楷体
+\AtBeginDocument{\zihao{4}}%<-设置通篇字体为楷体
+
+\renewcommand*\maketitle{%
+    \begin{center}\huge\bfseries 报告正文（2026版）\end{center}\medskip\par%
+    {\kaishu 参照以下提纲撰写，要求内容翔实、清晰，层次分明，标题突出。\textbf{\textcolor{NSFCred}{申请书正文原则上不超过30页，鼓励简洁表达。}\textcolor{NSFCblue}{请勿删除或改动下述提纲标题及括号中的文字。}}}%
+}%
+
+\begin{document}
+
+\maketitle%
+
+\section{立项依据}
+\briefintro*{（什么要开展此项研究，研究的科学技术价值如何）}\par\smallskip
+
+\zhlipsum[1]
+
+\section{研究内容}
+\briefintro*{（提纲不做限制，请按照研究工作的自身逻辑撰写。应提炼出特色与创新点、年度研究计划）}
+
+\zhlipsum[2]
+
+\section{研究基础}
+
+\subsection{研究基础与可行性分析}\briefintro*{（与本项目相关的研究工作积累和已取得的研究工作成绩，研究风险的应对措施等）；}
+
+\zhlipsum[3]
+
+\subsection{工作条件}\briefintro*{（包括已具备的实验条件，尚缺少的实验条件和拟解决的途径，包括利用国家实验室、全国重点实验室和部门重点实验室等研究基地的计划与落实情况）；}
+
+\zhlipsum[4]
+
+\subsection{正在承担的与本项目相关的科研项目情况}\briefintro*{（申请人和主要参与者正在承担的与本项目相关的科研项目情况，包括国家自然科学基金的项目和国家其他科技计划项目，要注明项目的资助机构、项目类别、批准号、项目名称、获资助金额、起止年月、与本项目的关系及负责的内容等）；}
+
+\zhlipsum[5]
+
+\subsection{完成国家自然科学基金项目情况}\briefintro*{（对申请人负责的前一个已资助期满的科学基金项目（项目名称及批准号）完成情况、后续研究进展及与本申请项目的关系加以详细说明。另附该项目的研究工作总结摘要（限500字）和相关成果详细目录）。}
+
+\zhlipsum[6]
+
+\section{其他需要说明的情况}
+\ctexset{subsection={format+={\normalfont\kaishu\selectfont},runin=false,afterskip={2.5ex plus .5ex minus .25ex}}}
+
+\subsection{申请人同年申请不同类型的国家自然科学基金项目情况（列明同年申请的其他项目的项目类型、项目名称信息，并说明与本项目之间的区别与联系；已收到自然科学基金委不予受理或不予资助决定的，无需列出）。}
+
+\zhlipsum[7]
+
+\subsection{申请人同年申请不同类型的国家自然科学基金项目情况（列明同年申请的其他项目的项目类型、项目名称信息，并说明与本项目之间的区别与联系；已收到自然科学基金委不予受理或不予资助决定的，无需列出）。}
+
+\zhlipsum[8]
+
+\subsection{具有高级专业技术职务（职称）的申请人或者主要参与者是否存在与正在承担的国家自然科学基金项目的单位不一致的情况；如存在上述情况，列明所涉及人员的姓名，正在承担项目的批准号、项目类型、项目名称、单位名称、起止年月，并说明单位不一致原因。}
+
+\zhlipsum[9]
+
+\subsection{申请人和主要参与者同年以不同专业技术职务（职称）申请或参与申请科学基金项目的情况（应详细说明原因）。}
+
+\zhlipsum[10]
+
+\subsection{申请人在撰写本申请书时使用生成式人工智能的情况，请详细说明申请书中使用的位置和内容。}
+
+\zhlipsum[11]
+
+\subsection{其他（包括但不限于使用以他人名义申报过的申请书；如有，请详细说明）。}
+
+\zhlipsum[12]
+
+\end{document}
